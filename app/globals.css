@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface-muted text-navy-900 font-sans;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-coral-100 text-coral-700;
+  }
+}
+
+@layer components {
+  .btn-parliamone {
+    @apply relative overflow-hidden;
+  }
+
+  .btn-parliamone::after {
+    content: "";
+    @apply pointer-events-none absolute inset-0 -translate-x-full skew-x-[-12deg] bg-gradient-to-r from-transparent via-white/30 to-transparent;
+    transition: transform 0.65s ease;
+  }
+
+  .btn-parliamone:hover::after {
+    @apply translate-x-[200%];
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
